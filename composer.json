@@ -1,0 +1,37 @@
+{
+    "name": "hafael/autum-platform-sdk",
+    "description": "PHP SDK for Autum Platform API.",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "keywords": ["autum", "php", "sdk", "platform", "api"],
+    "require": {
+        "php" : ">=5.6",
+        "hafael/php-http-client": "^0.1"
+    },
+    "require-dev": {
+        "phpunit/phpunit": ">=5.5"
+    },
+    "authors": [
+        {
+            "name": "Rafael Villa Verde",
+            "email": "rafael@autum.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Autum\\SDK\\Platform\\": "src/"
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/phpunit"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Autum\\SDK\\Platform\\AutumPlatformSDKServiceProvider"
+            ]
+        }
+    }
+}
