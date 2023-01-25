@@ -3,6 +3,8 @@
 namespace Autum\SDK\Platform;
 
 use Autum\SDK\Platform\Api\Contacts;
+use Autum\SDK\Platform\Api\Notifications;
+use Autum\SDK\Platform\Api\Users;
 use Hafael\HttpClient\Handler\Curl;
 use Hafael\HttpClient\Client as BaseClient;
 use Hafael\HttpClient\Contracts\ClientInterface;
@@ -26,7 +28,9 @@ class Client extends BaseClient implements ClientInterface
      * @var array
      */
     const API_RESOURCES = [
-        'contacts' => Contacts::class,
+        'contacts'      => Contacts::class,
+        'notifications' => Notifications::class,
+        'users'         => Users::class,
     ];
     
     /**
