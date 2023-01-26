@@ -26,12 +26,5 @@
     },
     "scripts": {
         "test": "./vendor/bin/phpunit"
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Autum\\SDK\\Platform\\AutumPlatformSDKServiceProvider"
-            ]
-        }
     }
 }
