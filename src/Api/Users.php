@@ -55,6 +55,22 @@ class Users extends Api
         ]));
     }
 
+    /**
+     * Generate access token for user (admin).
+     * 
+     * @param string $id
+     * @param string $name
+     * @param array $abilities
+     * @return mixed
+     */
+    public function issueToken(string $id, string $name, array $abilities = ['*'])
+    {
+        return $this->client->post(new Route(['admin/users/', $id, '/issue-token']), $this->getBody([
+            'name' => $name,
+            'abilities' => $abilities
+        ]));
+    }
+
     
 
 }
