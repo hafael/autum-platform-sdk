@@ -5,7 +5,7 @@ namespace Autum\SDK\Platform\Api;
 use Hafael\HttpClient\Api\Api;
 use Hafael\HttpClient\Route;
 
-class Contacts extends Api
+class People extends Api
 {
 
     /**

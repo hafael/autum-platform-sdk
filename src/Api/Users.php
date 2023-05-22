@@ -19,6 +19,49 @@ class Users extends Api
     }
 
     /**
+     * Get authenticated user organization info
+     * 
+     * @return mixed
+     */
+    public function getAccountOrganization()
+    {
+        return $this->client->get(new Route(['account/organization']));
+    }
+
+    /**
+     * Get authenticated user current team info
+     * 
+     * @return mixed
+     */
+    public function getCurrentTeam()
+    {
+        return $this->client->get(new Route(['account/current-team']));
+    }
+
+    /**
+     * Get authenticated user current team info
+     * 
+     * @return mixed
+     */
+    public function getCurrentTeamMembers()
+    {
+        return $this->client->get(new Route(['account/current-team/members']));
+    }
+
+    /**
+     * Show Current Team by User.
+     *
+     * @param string $teamId
+     * @return mixed
+     */
+    public function switchCurrentTeam($teamId)
+    {
+        return $this->client->put(new Route(['account/current-team']), [
+            'team_id' => $teamId,
+        ]);
+    }
+
+    /**
      * Update authenticated user
      * 
      * @param array $data
@@ -65,12 +108,10 @@ class Users extends Api
      */
     public function issueToken(string $id, string $name, array $abilities = ['*'])
     {
-        return $this->client->post(new Route(['admin/users/', $id, '/issue-token']), $this->getBody([
+        return $this->client->post(new Route(['auth/token']), $this->getBody([
             'name' => $name,
             'abilities' => $abilities
         ]));
     }
-
-    
 
 }
