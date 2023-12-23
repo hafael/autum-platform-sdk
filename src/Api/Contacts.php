@@ -2,6 +2,7 @@
 
 namespace Autum\SDK\Platform\Api;
 
+use Autum\SDK\Platform\Models\Contact;
 use Hafael\HttpClient\Api\Api;
 use Hafael\HttpClient\Route;
 
@@ -16,7 +17,24 @@ class Contacts extends Api
      * @param int $perPage
      * @return mixed
      */
-    public function getList($query = null, $page = 1, $perPage = 10)
+    public function searchAll($query = null)
+    {
+        return $this->client->get(new Route(['people']), [
+            'q' => $query,
+            'all' => true,
+        ]);
+    }
+
+
+    /**
+     * Get Contact list paginated
+     * 
+     * @param string|null $query
+     * @param int $page
+     * @param int $perPage
+     * @return mixed
+     */
+    public function searchPaginated($query = null, $page = 1, $perPage = 10)
     {
         return $this->client->get(new Route(['people']), [
             'q' => $query,
@@ -42,9 +60,13 @@ class Contacts extends Api
      * @param string $contactId
      * @return mixed
      */
-    public function showById($contactId)
+    public function show($contactId)
     {
-        return $this->client->get(new Route(['people/', $contactId]));
+
+        $response = $this->client->get(new Route(['people/', $contactId]));
+
+        return $response;
+        //return new Contact($response->json()['data']);
     }
 
     /**

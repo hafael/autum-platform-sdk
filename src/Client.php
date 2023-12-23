@@ -2,6 +2,7 @@
 
 namespace Autum\SDK\Platform;
 
+use Autum\SDK\Platform\Api\Applications;
 use Autum\SDK\Platform\Api\Contacts;
 use Autum\SDK\Platform\Api\Notifications;
 use Autum\SDK\Platform\Api\Teams;
@@ -47,6 +48,7 @@ class Client extends BaseClient implements ClientInterface
         'users'         => 'https://accounts-local.autum.com.br/api/',
         'teams'         => 'https://accounts-local.autum.com.br/api/',
         'notifications' => 'https://accounts-local.autum.com.br/api/',
+        'apps'          => 'https://accounts-local.autum.com.br/api/',
         'contacts'      => 'https://agenda-local.autum.com.br/api/',
     ];
 
@@ -57,6 +59,7 @@ class Client extends BaseClient implements ClientInterface
         'users'         => 'https://accounts-dev.autum.com.br/api/',
         'teams'         => 'https://accounts-dev.autum.com.br/api/',
         'notifications' => 'https://accounts-dev.autum.com.br/api/',
+        'apps'          => 'https://accounts-dev.autum.com.br/api/',
         'contacts'      => 'https://agenda-dev.autum.com.br/api/',
     ];
 
@@ -67,6 +70,7 @@ class Client extends BaseClient implements ClientInterface
         'users'         => 'https://autum.com.br/api/',
         'teams'         => 'https://autum.com.br/api/',
         'notifications' => 'https://autum.com.br/api/',
+        'apps'          => 'https://autum.com.br/api/',
         'contacts'      => 'https://agenda.autum.com.br/api/',
     ];
 
@@ -78,6 +82,7 @@ class Client extends BaseClient implements ClientInterface
         'notifications' => Notifications::class,
         'users'         => Users::class,
         'teams'         => Teams::class,
+        'apps'          => Applications::class,
     ];
     
     /**
@@ -86,10 +91,15 @@ class Client extends BaseClient implements ClientInterface
      * @param string $apiKey
      * @param string $environment
      */
-    public function __construct(string $apiKey, string $environment = self::ENV_PRODUCTION)
+    public function __construct(string $apiKey = null, string $environment = null)
     {
-        $this->setApiKey($apiKey);
-        $this->setEnv($environment);
+        if(!empty($apiKey)) {
+            $this->setApiKey($apiKey);
+        }
+
+        if(!empty($environment)) {
+            $this->setEnv($environment);
+        }
     }
 
     /**
