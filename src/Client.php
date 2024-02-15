@@ -4,7 +4,9 @@ namespace Autum\SDK\Platform;
 
 use Autum\SDK\Platform\Api\Applications;
 use Autum\SDK\Platform\Api\Contacts;
+use Autum\SDK\Platform\Api\Helpdesk;
 use Autum\SDK\Platform\Api\Notifications;
+use Autum\SDK\Platform\Api\Subscriptions;
 use Autum\SDK\Platform\Api\Teams;
 use Autum\SDK\Platform\Api\Users;
 use Hafael\HttpClient\Handler\Curl;
@@ -49,7 +51,9 @@ class Client extends BaseClient implements ClientInterface
         'teams'         => 'https://accounts-local.autum.com.br/api/',
         'notifications' => 'https://accounts-local.autum.com.br/api/',
         'apps'          => 'https://accounts-local.autum.com.br/api/',
+        'subscriptions' => 'https://accounts-local.autum.com.br/api/',
         'contacts'      => 'https://agenda-local.autum.com.br/api/',
+        'helpdesk'      => 'https://helpdesk-local.autum.com.br/api/',
     ];
 
     /**
@@ -60,7 +64,9 @@ class Client extends BaseClient implements ClientInterface
         'teams'         => 'https://accounts-dev.autum.com.br/api/',
         'notifications' => 'https://accounts-dev.autum.com.br/api/',
         'apps'          => 'https://accounts-dev.autum.com.br/api/',
+        'subscriptions' => 'https://accounts-dev.autum.com.br/api/',
         'contacts'      => 'https://agenda-dev.autum.com.br/api/',
+        'helpdesk'      => 'https://helpdesk-dev.autum.com.br/api/',
     ];
 
     /**
@@ -71,7 +77,9 @@ class Client extends BaseClient implements ClientInterface
         'teams'         => 'https://autum.com.br/api/',
         'notifications' => 'https://autum.com.br/api/',
         'apps'          => 'https://autum.com.br/api/',
+        'subscriptions' => 'https://autum.com.br/api/',
         'contacts'      => 'https://agenda.autum.com.br/api/',
+        'helpdesk'      => 'https://helpdesk.autum.com.br/api/',
     ];
 
     /**
@@ -83,6 +91,8 @@ class Client extends BaseClient implements ClientInterface
         'users'         => Users::class,
         'teams'         => Teams::class,
         'apps'          => Applications::class,
+        'subscriptions' => Subscriptions::class,
+        'helpdesk'      => Helpdesk::class,
     ];
     
     /**
