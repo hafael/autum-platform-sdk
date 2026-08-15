@@ -101,7 +101,7 @@ class Client extends BaseClient implements ClientInterface
      * @param string $apiKey
      * @param string $environment
      */
-    public function __construct(string $apiKey = null, string $environment = null)
+    public function __construct(?string $apiKey = null, ?string $environment = null)
     {
         if(!empty($apiKey)) {
             $this->setApiKey($apiKey);
@@ -228,9 +228,7 @@ class Client extends BaseClient implements ClientInterface
             throw new ClientException(sprintf('API Resource not exists: %s', $name));
         }
 
-        if(!$this->skipUser) {
-            $this->setResourceName($name);
-        }
+        $this->setResourceName($name);
 
         $class = static::API_RESOURCES[$name];
 
