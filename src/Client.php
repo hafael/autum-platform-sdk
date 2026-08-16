@@ -9,6 +9,8 @@ use Autum\SDK\Platform\Api\Notifications;
 use Autum\SDK\Platform\Api\Subscriptions;
 use Autum\SDK\Platform\Api\Teams;
 use Autum\SDK\Platform\Api\Users;
+use Autum\SDK\Platform\Api\Chatbot;
+use Autum\SDK\Platform\Api\SocialMonitor;
 use Hafael\HttpClient\Handler\Curl;
 use Hafael\HttpClient\Client as BaseClient;
 use Hafael\HttpClient\Contracts\ClientInterface;
@@ -53,7 +55,10 @@ class Client extends BaseClient implements ClientInterface
         'apps'          => 'https://accounts-local.autum.com.br/api/',
         'subscriptions' => 'https://accounts-local.autum.com.br/api/',
         'contacts'      => 'https://agenda-local.autum.com.br/api/',
+        'agenda'        => 'https://agenda-local.autum.com.br/api/',
         'helpdesk'      => 'https://helpdesk-local.autum.com.br/api/',
+        'chatbot'       => 'https://chatbot-local.autum.com.br/api/',
+        'socialmonitor' => 'https://socialmonitor-local.autum.com.br/api/',
     ];
 
     /**
@@ -66,7 +71,10 @@ class Client extends BaseClient implements ClientInterface
         'apps'          => 'https://accounts-dev.autum.com.br/api/',
         'subscriptions' => 'https://accounts-dev.autum.com.br/api/',
         'contacts'      => 'https://agenda-dev.autum.com.br/api/',
+        'agenda'        => 'https://agenda-dev.autum.com.br/api/',
         'helpdesk'      => 'https://helpdesk-dev.autum.com.br/api/',
+        'chatbot'       => 'https://chatbot-dev.autum.com.br/api/',
+        'socialmonitor' => 'https://socialmonitor-dev.autum.com.br/api/',
     ];
 
     /**
@@ -79,7 +87,10 @@ class Client extends BaseClient implements ClientInterface
         'apps'          => 'https://autum.com.br/api/',
         'subscriptions' => 'https://autum.com.br/api/',
         'contacts'      => 'https://agenda.autum.com.br/api/',
+        'agenda'        => 'https://agenda.autum.com.br/api/',
         'helpdesk'      => 'https://helpdesk.autum.com.br/api/',
+        'chatbot'       => 'https://chatbot.autum.com.br/api/',
+        'socialmonitor' => 'https://socialmonitor.autum.com.br/api/',
     ];
 
     /**
@@ -87,12 +98,15 @@ class Client extends BaseClient implements ClientInterface
      */
     const API_RESOURCES = [
         'contacts'      => Contacts::class,
+        'agenda'        => Contacts::class,
         'notifications' => Notifications::class,
         'users'         => Users::class,
         'teams'         => Teams::class,
         'apps'          => Applications::class,
         'subscriptions' => Subscriptions::class,
         'helpdesk'      => Helpdesk::class,
+        'chatbot'       => Chatbot::class,
+        'socialmonitor' => SocialMonitor::class,
     ];
     
     /**

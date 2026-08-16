@@ -25,6 +25,19 @@ class Contacts extends Api
         ]);
     }
 
+    /**
+     * Cross-service lookup for people by phone, email, CPF or name.
+     *
+     * @param string $query
+     * @return mixed
+     */
+    public function lookup(string $query)
+    {
+        return $this->client->get(new Route(['people/lookup']), [
+            'q' => $query,
+        ]);
+    }
+
 
     /**
      * Get Contact list paginated
